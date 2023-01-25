@@ -8,5 +8,5 @@ function solution(n) {
         }
     }
     
-    return answer === -1 ? -1 : (answer + 1) * (answer + 1);
+    return answer === -1 ? answer : (answer + 1) * (answer + 1);
 }
