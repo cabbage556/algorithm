@@ -6,12 +6,17 @@ function solution(absolutes, signs) {
     // return answer;
     
     // 수업 풀이 (반복문)
-    let answer = 0;
-    for (let i = 0; i < absolutes.length; i++) {
-        if (signs[i])
-            answer += absolutes[i];
-        else
-            answer -= absolutes[i];
-    }
+    // let answer = 0;
+    // for (let i = 0; i < absolutes.length; i++) {
+    //     signs[i]
+    //         ? answer += absolutes[i]
+    //         : answer -= absolutes[i];
+    // }
+    // return answer;
+    
+    // 수업 풀이 (메서드)
+    const answer = absolutes.reduce((acc, cur, idx) => {
+        return acc + (signs[idx] ? cur : -cur);
+    }, 0);
     return answer;
 }
