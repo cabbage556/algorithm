@@ -4,10 +4,10 @@ function solution(nums) {
     
     // console.log(selectCount, typeCount);
     
-    if (selectCount < typeCount)      // N/2 보다 포켓몬의 종류가 더 큰 경우
+    // N/2 보다 포켓몬의 종류가 더 큰 경우
+    if (selectCount < typeCount)
         return selectCount;
-    else if (selectCount > typeCount) // N/2 보다 포켓몬의 종류가 더 작은 경우
-        return typeCount;
+    // N/2 보다 포켓몬의 종류가 더 작은 경우
     else
         return typeCount;
 }
