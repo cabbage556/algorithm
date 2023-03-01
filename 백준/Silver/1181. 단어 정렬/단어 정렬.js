@@ -5,7 +5,7 @@ const input = require("fs")
   .split(/\n/);
 const arr = Array.from(new Set(input));
 const answer = [];
-let maxLength = arr[1].length;
+let maxLength = 0;
 
 for (let i = 1; i < arr.length; i++) {
   if (maxLength < arr[i].length) {
