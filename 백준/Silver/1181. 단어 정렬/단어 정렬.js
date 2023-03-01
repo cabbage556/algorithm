@@ -4,20 +4,21 @@ const input = require("fs")
   .trim()
   .split(/\n/);
 const arr = Array.from(new Set(input));
-const wordObj = {};
 const answer = [];
+let maxLength = arr[1].length;
 
 for (let i = 1; i < arr.length; i++) {
-  wordObj[arr[i]] = arr[i].length;
+  if (maxLength < arr[i].length) {
+    maxLength = arr[i].length;
+  }
 }
 
-const maxLength = Math.max(...Object.values(wordObj));
 for (let i = 1; i <= maxLength; i++) {
   const temp = [];
 
-  for (const word in wordObj) {
-    if (wordObj[word] === i) {
-      temp.push(word);
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[j].length === i) {
+      temp.push(arr[j]);
     }
   }
 
@@ -25,5 +26,4 @@ for (let i = 1; i <= maxLength; i++) {
     answer.push(temp.sort());
   }
 }
-
 answer.flat().forEach((el) => console.log(el));
