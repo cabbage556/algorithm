@@ -1,5 +1,8 @@
-const fs = require('fs');
-const input = fs.readFileSync("/dev/stdin").toString().trim().split(" ");
-const a = input[0] * 1;
-const b = input[1] * 1;
-console.log(a - b);
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split(/\s/)
+  .map(Number);
+const [A, B] = input;
+console.log(A - B);
