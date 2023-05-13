@@ -1,4 +1,13 @@
 function solution(n) {
+    n = n.toString(3)
+    let reversed = '';
+    
+    for (let i = n.length - 1; i >=0; i--) {
+        reversed += n[i];
+    }
+    
+    return parseInt(reversed, 3);
+    
 //     const threes = [];
 //     let answer = 0;
 //     let powerOfThree = 1;
@@ -31,12 +40,12 @@ function solution(n) {
 //     return parseInt(reverse, 3);
     
     // 수업 풀이
-    n = n.toString(3)  // 3진법으로 변환
-         .split('')    // 배열로 나누기
-         .reverse()    // 뒤집기
-         .join('');    // 문자열로 합치기
+//     n = n.toString(3)  // 3진법으로 변환
+//          .split('')    // 배열로 나누기
+//          .reverse()    // 뒤집기
+//          .join('');    // 문자열로 합치기
     
-    return parseInt(n, 3);
+//     return parseInt(n, 3);
     
     
 }
