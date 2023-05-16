@@ -1,35 +1,22 @@
-function solution(n ,arr1, arr2) {
-//     const answer = [];
-
-//     function getBinaryArr(arr) {
-//         const tempArr = [];
-
-//         for (let el of arr) {
-//           const temp = [];
-
-//           while (el > 0) {
-//             temp.unshift((el % 2) + '');
-//             el = Math.floor(el / 2);
-//           }
-//           tempArr.push(temp.join('').padStart(n, '0'));
-//         }
-
-//         return tempArr;
-//     }
-//     const binary1 = getBinaryArr(arr1);
-//     const binary2 = getBinaryArr(arr2);
-
-//     // console.log(binary1, binary2);
-
-//     for (let i = 0; i < binary1.length; i++) {
-//         let temp = "";
-//         for (let j = 0; j < binary1[i].length; j++) {
-//           if (binary1[i][j] * 1 + binary2[i][j] * 1 === 0) temp += " ";
-//           else temp += "#";
-//         }
-//         answer.push(temp);
-//     }
-//     return answer;
+function solution(n, arr1, arr2) {
+    const answer = new Array(n);
+    
+    for (let i = 0; i < answer.length; i++) {
+        answer[i] = '';
+        
+        arr1[i] = arr1[i].toString(2).padStart(n, '0');
+        arr2[i] = arr2[i].toString(2).padStart(n, '0');
+        
+        for (let j = 0; j < arr1.length; j++) {
+            if (arr1[i][j] === '1' || arr2[i][j] === '1') {
+                answer[i] += '#'
+            } else {
+                answer[i] += ' '
+            }
+        }
+    }
+    
+    return answer;
     
     // 수업 풀이
 //     const answer = [];
@@ -55,40 +42,17 @@ function solution(n ,arr1, arr2) {
 //     return answer;
     
     // 수업 풀이
-    const answer = arr1.map((map1, i) => {
-        // 지도1, 2를 2진법으로 변환
-        map1 = map1.toString(2).padStart(n, '0');
-        const map2 = arr2[i].toString(2).padStart(n, '0');
+//     const answer = arr1.map((map1, i) => {
+//         // 지도1, 2를 2진법으로 변환
+//         map1 = map1.toString(2).padStart(n, '0');
+//         const map2 = arr2[i].toString(2).padStart(n, '0');
         
-        return map1.split('').reduce((acc, cur, j) => {
-            return acc + (cur === '1' || map2[j] === '1'
-                            ? '#'
-                            : ' '
-                        );
-        }, '');
-    });
-    return answer;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+//         return map1.split('').reduce((acc, cur, j) => {
+//             return acc + (cur === '1' || map2[j] === '1'
+//                             ? '#'
+//                             : ' '
+//                         );
+//         }, '');
+//     });
+//     return answer;
 }
