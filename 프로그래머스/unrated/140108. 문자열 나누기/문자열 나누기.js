@@ -25,7 +25,6 @@ function solution(s) {
         if (num === obj[x]) {
             answer.push(split);
             split = '';
-            num = 0;
             x = s[i + 1];
             obj = {};
         } else if (i === s.length - 1) {
