@@ -1,15 +1,19 @@
-function solution(s){
-    if (s.length === 1 || s[0] === ')') // 길이가 1이거나 ')'로 시작하는 괄호의 경우 false 반환
-        return false;
+function solution(s) {
+    const stack = [];
     
-    const arr = [s[0]];
-    
-    for (let i = 1; i < s.length; i++) {
-        if (arr[arr.length - 1] === '(' && s[i] === ')')
-            arr.pop();
-        else
-            arr.push(s[i]);
+    for (let i = 0; i < s.length; i++) {
+        if (i === 0 && s[i] === ')') {
+            return false;
+        } else if (i === s.length - 1 && s[i] === '(') {
+            return false;
+        }
+        
+        if (s[i] === '(') {
+            stack.push('(');
+        } else {
+            stack.pop();
+        }
     }
     
-    return arr.length === 0;
+    return stack.length === 0 ? true : false;
 }
