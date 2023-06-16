@@ -1,35 +1,28 @@
 function solution(n, words) {
-  const wordObj = {};
-  let turn = 0;
-  
-  for (let i = 0; i < words.length; i++) {
-    const currentWord = words[i];
-    wordObj[currentWord] = (wordObj[currentWord] || 0) + 1;
+    const wordHashTable = {};
     
-    // 중복된 단어로 끝말잇기한 경우
-    if (wordObj[currentWord] === 2) {
-      turn = i;
-      break;
+    for (let i = 0; i < words.length; i++) {
+        const currentWord = words[i];
+        const player = i % n + 1;
+        const turn = Math.floor(i / n) + 1;
+        
+        // 이전에 사용했던 단어를 사용하는 경우
+        if (wordHashTable[currentWord]) {
+            return [player, turn];
+        } else {
+            wordHashTable[currentWord] = true;
+        }
+        
+        if (i === 0) {
+            continue;
+        }
+        
+        const prevWord = words[i - 1];
+        // 앞사람이 말한 단어의 마지막 문자로 말하지 않은 경우
+        if (prevWord[prevWord.length - 1] !== currentWord[0]) {
+            return [player, turn];
+        }
     }
     
-    let nextWord = '';
-    if (i !== words.length - 1)  {
-      nextWord = words[i + 1];
-    }
-    // 끝말잇기가 틀린 경우
-    if (currentWord[currentWord.length - 1] !== nextWord[0]) {
-      if (i === words.length - 1) {
-        return [0, 0];
-      } else {
-        turn = i + 1;
-        break;
-      }
-    }
-  }
-  
-  // 중복된 단어를 말한 경우
-  if (turn !== 0) {
-    console.log(turn);
-    return [turn % n + 1, Math.trunc(turn / n) + 1];
-  }
+    return [0, 0];
 }
