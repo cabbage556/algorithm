@@ -1,36 +1,36 @@
 function solution(progresses, speeds) {
-    const dayCounts = new Array(progresses.length); // 배포까지 남은 일수를 저장하는 배열
-    const answer = [];    // 정답 배열
-    let completes = [];   // 배포 가능한 작업들을 일시적으로 저장하는 배열
-  
+    // progresses: 먼저 배포되어야 하는 순서대로 작업의 진도가 적힌 정수 배열
+    // speeds: 각 작업의 개발 속도가 적힌 정수 배열
+    // return: 각 배포마다 몇 개의 기능이 배포되는지를 저장한 배열
+    
+    const answer = [];
+    const remainings = []; // 배포까지 남은 일 수를 저장하는 배열
+    let completes = [];    // 같이 배포 가능한 작업들의 일 수를 임시로 저장하는 배열
+    
     for (let i = 0; i < progresses.length; i++) {
-        let dayCount = 0;
-
-        while (progresses[i] < 100) { // 배포까지의 남은 일수 계산
-            dayCount++;
-            progresses[i] += speeds[i];
-        }
-
-        dayCounts[i] = dayCount; // 배포까지의 남은 일수 저장
+        const progress = progresses[i];
+        const speed = speeds[i];
+        
+        remainings.push(Math.ceil((100 - progress) / speed)); // 모든 작업들의 남은 일 수를 계산하여 저장
     }
-  
-    for (let i = 0; i < progresses.length; i++) {
+    
+    for (let i = 0; i < remainings.length; i++) {
         if (i === 0) {
-            completes.push(dayCounts[i]);
+            completes.push(remainings[i]);
             continue;
         }
-
-        if (completes.at(0) >= dayCounts[i]) { // completes 배열의 첫번째 요소(배포까지 남은 일수)보다 적다면 함께 배포하기 위해 같이 저장
-          completes.push(dayCounts[i]);
-        } else {
-          answer.push(completes.length); // 한번에 배포 가능한 모든 작업들의 갯수를 정답 배열에 저장
-          completes = [];                // 빈 배열 초기화
-          completes.push(dayCounts[i]);  // 한번에 배포할 수 없는 작업 저장
+        
+        if (completes[0] >= remainings[i]) { // 같이 배포 가능한 작업인 경우
+            completes.push(remainings[i]);
+        } else {                             // 같이 배포 가능한 작업이 아닌 경우 초기화
+            answer.push(completes.length);
+            completes = [];
+            completes.push(remainings[i]);
         }
-
-      if (i === progresses.length - 1) { // 마지막 인덱스 처리
-        answer.push(completes.length);         
-      }
+        
+        if (i === remainings.length - 1) {   // 마지막 작업인 경우 배포
+            answer.push(completes.length);
+        }
     }
     
     return answer;
