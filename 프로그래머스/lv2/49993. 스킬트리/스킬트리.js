@@ -1,33 +1,19 @@
 function solution(skill, skill_trees) {
-  let answer = 0;
-  let treeIndex = new Array(skill_trees.length);
-  
-  for (let i = 0; i < skill_trees.length; i++) {
-    treeIndex[i] = new Array(skill_trees[i].length);
-  }
-  
-  for (let i = 0; i < skill_trees.length; i++) {
-    for (let j = 0; j < skill_trees[i].length; j++) {
-      treeIndex[i][j] = skill.indexOf(skill_trees[i][j]);
-    }
-  }
-  
-  treeIndex = treeIndex.map(el => el.filter(el2 => el2 !== -1));
-  
-  for (let i = 0; i < treeIndex.length; i++) {
-    let temp = 0;
-    for (let j = 0; j < treeIndex[i].length; j++) {
-      if (temp === treeIndex[i][j]) {
-        temp++;
-      }
-    }
-    
-    if (temp === treeIndex[i].length) {
-      answer++;
-    }
-  }
-  
-  return answer;
-}
+    // skill: 선행 스킬 순서
+    // skill_tress: 유저 스킬트리를 담은 배열
+    // skill: 'CBD'인 경우 C -> B -> D 순서로 스킬을 배울 수 있다.
+    let answer = 0;
 
-solution("CBD", ["BACDE", "CBADF", "AECB", "BDA"])
+    skill_trees.forEach((skill_tree) => {
+        const essentialSkillsInUserSkillTree = skill_tree
+            .split("")
+            .filter((el) => skill.includes(el))
+            .join("");
+        
+        if (skill.indexOf(essentialSkillsInUserSkillTree) === 0) {
+            answer++;
+        }
+    });
+
+    return answer;
+}
