@@ -38,5 +38,49 @@ var moveZeroes = function (nums) {
     console.log(nums);
 };
 
-moveZeroes([0, 1, 0, 3, 12]);
-moveZeroes([1, 3, 12, 0, 5]);
+// 브루트 포스 버전(추가 공간 사용)
+var moveZeroes2 = function (nums) {
+    let j = 0;
+    const noneZeroes = new Array(nums.length);
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            noneZeroes[j++] = nums[i];
+        }
+    }
+
+    // i가 j부터 시작
+    for (let i = j; i < nums.length; i++) {
+        // 인덱스 i부터 0 할당
+        noneZeroes[i] = 0;
+    }
+
+    console.log(noneZeroes);
+};
+
+// 다른 버전(추가 공간을 사용하지 않음)
+var moveZeroes3 = function (nums) {
+    let noneZeroCount = 0;
+    let length = nums.length;
+
+    for (let i = 0; i < length; i++) {
+        if (nums[i] !== 0) {
+            nums[noneZeroCount++] = nums[i];
+        }
+    }
+
+    for (let i = noneZeroCount; i < length; i++) {
+        nums[i] = 0;
+    }
+
+    console.log(nums);
+};
+
+// moveZeroes([0, 1, 0, 3, 12]);
+// moveZeroes([1, 3, 12, 0, 5]);
+
+// moveZeroes2([0, 1, 0, 3, 12]);
+// moveZeroes2([1, 3, 12, 0, 5]);
+
+moveZeroes3([0, 1, 0, 3, 12]);
+moveZeroes3([1, 3, 12, 0, 5]);
