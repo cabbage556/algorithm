@@ -37,9 +37,9 @@ var mergeTwoLists = function (list1, list2) {
 
 // list1: 1' - 2' - 4'
 // list2: 1  - 3  - 4
-// mergeTwoLists(1', 1) merged: 0 - 1 - 1' - 2' - 3 - 4 - 4' return 1 - 1' - 2' - 3 - 4 - 4'
-// mergeTwoLists(1', 3) merged: 0 - 1' - 2' - 3 - 4 - 4' return 1' - 2' - 3 - 4 - 4'
-// mergeTwoLists(2', 3) merged: 0 - 2' - 3 - 4 - 4' return 2' - 3 - 4 - 4'
-// mergeTwoLists(4', 3) merged: 0 - 3 - 4 - 4' return 3 - 4 - 4'
-// mergeTwoLists(4', 4) merged: 0 - 4 - 4' return 4 - 4'
+// mergeTwoLists(1', 1) merged: 0 - 1 - mergeTwoLists(1', 3) return 1 - 1' - 2' - 3 - 4 - 4'
+// mergeTwoLists(1', 3) merged: 0 - 1' - mergeTwoLists(2', 3) return 1' - 2' - 3 - 4 - 4'
+// mergeTwoLists(2', 3) merged: 0 - 2' - mergeTwoLists(4', 3) return 2' - 3 - 4 - 4'
+// mergeTwoLists(4', 3) merged: 0 - 3 - mergeTwoLists(4', 4) return 3 - 4 - 4'
+// mergeTwoLists(4', 4) merged: 0 - 4 - mergeTwoLists(4', null) return 4 - 4'
 // mergeTwoLists(4', null) return 4'
