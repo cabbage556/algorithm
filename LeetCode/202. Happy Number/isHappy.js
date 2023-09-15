@@ -3,11 +3,11 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-  let nums = String(n).split("").map(Number);
   const set = new Set();
 
   while (true) {
     let sum = 0;
+    const nums = String(n).split("").map(Number);
     for (const num of nums) {
       const square = num ** 2;
       sum += square;
@@ -19,6 +19,6 @@ var isHappy = function (n) {
       return false;
     }
     set.add(sum);
-    nums = String(sum).split("").map(Number);
+    n = sum;
   }
 };
