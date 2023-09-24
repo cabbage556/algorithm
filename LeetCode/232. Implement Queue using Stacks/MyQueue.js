@@ -19,6 +19,8 @@ MyQueue.prototype.push = function (x) {
  */
 MyQueue.prototype.pop = function () {
   // stack2가 비어 있는 경우 stack1의 모든 데이터를 꺼내어 stack2에 데이터를 넣음
+  // stack2에는 stack1에 들어간 역순으로 데이터를 넣는다
+  //    stack2는 스택이지만 큐처럼 동작함
   if (this.stack2.length === 0) {
     while (this.stack1.length > 0) {
       this.stack2.push(this.stack1.pop());
