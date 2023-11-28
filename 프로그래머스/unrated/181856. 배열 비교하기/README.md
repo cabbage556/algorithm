@@ -1,10 +1,10 @@
-# [unrated] 배열 비교하기 - 181856 
+# [level unrated] 배열 비교하기 - 181856 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181856) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181856?language=java) 
 
 ### 성능 요약
 
-메모리: 33.7 MB, 시간: 0.06 ms
+메모리: 78.5 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -12,7 +12,11 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 11월 3일 1:30:39
 
 ### 문제 설명
 
@@ -86,5 +90,9 @@ Empty
 <li>예제 3번에서는 <code>arr1</code>의 길이와 <code>arr2</code>의 길이가 5로 같고 각 배열의 모든 원소의 합 또한 15로 같습니다. 따라서 <code>arr1</code>과 <code>arr2</code>가 같으므로 0을 return 합니다.</li>
 </ul>
 
+<hr>
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+<p>※ 공지 - 2023년 4월 21일 테스트케이스가 추가되었습니다. 기존에 제출한 코드가 통과하지 못할 수도 있습니다.</p>
+
+
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
