@@ -1,10 +1,10 @@
-# [unrated] 원하는 문자열 찾기 - 181878 
+# [level unrated] 원하는 문자열 찾기 - 181878 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181878) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181878?language=java) 
 
 ### 성능 요약
 
-메모리: 33.8 MB, 시간: 0.12 ms
+메모리: 77.7 MB, 시간: 5.60 ms
 
 ### 구분
 
@@ -12,7 +12,11 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 11월 2일 20:6:0
 
 ### 문제 설명
 
@@ -26,7 +30,7 @@ Empty
 
 <ul>
 <li>1 ≤ <code>myString</code>의 길이 ≤ 100,000</li>
-<li>1 ≤ <code>pat</code>의 길이 ≤ 30</li>
+<li>1 ≤ <code>pat</code>의 길이 ≤ 300</li>
 <li><code>myString</code>과 <code>pat</code>은 모두 알파벳으로 이루어진 문자열입니다.</li>
 </ul>
 
@@ -66,5 +70,7 @@ Empty
 <li><code>myString</code>의 길이가 <code>pat</code>보다 더 짧기 때문에 <code>myString</code>의 부분 문자열 중 <code>pat</code>와 같은 문자열이 있을 수 없습니다. 따라서 0을 return 합니다.</li>
 </ul>
 
+<p>※2023년 05월 15일 제한사항이 수정되었습니다.</p>
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
