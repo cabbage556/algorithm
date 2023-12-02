@@ -3,7 +3,7 @@ class Solution {
         String vertical = "";
         
         for (int i = c - 1; i < my_string.length(); i += m) {
-            vertical += Character.toString(my_string.charAt(i));
+            vertical += my_string.charAt(i);
         }
         
         return vertical;
