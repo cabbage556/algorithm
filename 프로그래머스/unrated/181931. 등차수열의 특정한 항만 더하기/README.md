@@ -1,10 +1,10 @@
-# [unrated] 등차수열의 특정한 항만 더하기 - 181931 
+# [level unrated] 등차수열의 특정한 항만 더하기 - 181931 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181931) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181931?language=java) 
 
 ### 성능 요약
 
-메모리: 33.5 MB, 시간: 0.04 ms
+메모리: 78.1 MB, 시간: 0.03 ms
 
 ### 구분
 
@@ -12,7 +12,11 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 12월 6일 22:48:42
 
 ### 문제 설명
 
@@ -23,8 +27,8 @@ Empty
 <h5>제한사항</h5>
 
 <ul>
-<li>1 ≤ a ≤ 100</li>
-<li>1 ≤ d ≤ 100</li>
+<li>1 ≤ <code>a</code> ≤ 100</li>
+<li>1 ≤ <code>d</code> ≤ 100</li>
 <li>1 ≤ <code>included</code>의 길이 ≤ 100</li>
 <li><code>included</code>에는 true가 적어도 하나 존재합니다.</li>
 </ul>
@@ -96,7 +100,7 @@ Empty
 <p>입출력 예 #2</p>
 
 <ul>
-<li><p>예제 1번은 <code>a</code>와 <code>d</code>가 각각 3, 4이고 <code>included</code>의 길이가 7입니다. 이를 표로 나타내면 다음과 같습니다.</p>
+<li><p>예제 2번은 <code>a</code>와 <code>d</code>가 각각 7, 1이고 <code>included</code>의 길이가 7입니다. 이를 표로 나타내면 다음과 같습니다.</p>
 <table class="table">
         <thead><tr>
 <th></th>
@@ -135,4 +139,4 @@ Empty
 </ul>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
