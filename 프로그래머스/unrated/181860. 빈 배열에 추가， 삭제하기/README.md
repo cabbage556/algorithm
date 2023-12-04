@@ -1,10 +1,10 @@
-# [unrated] 빈 배열에 추가, 삭제하기 - 181860 
+# [level unrated] 빈 배열에 추가, 삭제하기 - 181860 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181860) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181860?language=java) 
 
 ### 성능 요약
 
-메모리: 33.4 MB, 시간: 0.06 ms
+메모리: 78.2 MB, 시간: 1.87 ms
 
 ### 구분
 
@@ -12,11 +12,15 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 12월 1일 16:32:8
 
 ### 문제 설명
 
-<p>아무 원소도 들어있지 않은 빈 배열 X가 있습니다. 길이가 같은 정수 배열 <code>arr</code>과 boolean 배열 <code>flag</code>가 매개변수로 주어질 때, <code>flag</code>를 차례대로 순회하며 <code>flag[i]</code>가 true라면 X의 뒤에 <code>arr[i]</code>를 <code>arr[i]</code> x 2 번 추가하고, <code>flag[i]</code>가 false라면 X에서 마지막 <code>arr[i]</code>개의 원소를 제거한 뒤 X를 return 하는 solution 함수를 작성해 주세요.</p>
+<p>아무 원소도 들어있지 않은 빈 배열 X가 있습니다. 길이가 같은 정수 배열 <code>arr</code>과 boolean 배열 <code>flag</code>가 매개변수로 주어질 때, <code>flag</code>를 차례대로 순회하며 <code>flag[i]</code>가 true라면 X의 뒤에 <code>arr[i]</code>를 <code>arr[i]</code> × 2 번 추가하고, <code>flag[i]</code>가 false라면 X에서 마지막 <code>arr[i]</code>개의 원소를 제거한 뒤 X를 return 하는 solution 함수를 작성해 주세요.</p>
 
 <hr>
 
@@ -103,4 +107,4 @@ Empty
 </ul>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
