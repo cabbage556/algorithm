@@ -4,13 +4,7 @@ class Solution {
         
         for (int num : num_list) {
             while (num != 1) {
-                boolean isEven = num % 2 == 0;
-                if (isEven) {
-                    num /= 2;
-                } else {
-                    num--;
-                    num /= 2;
-                }
+                num /= 2;
                 answer++;
             }
         }
