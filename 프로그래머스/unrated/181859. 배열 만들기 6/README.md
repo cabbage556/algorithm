@@ -1,10 +1,10 @@
-# [unrated] 배열 만들기 6 - 181859 
+# [level unrated] 배열 만들기 6 - 181859 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181859) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181859?language=java) 
 
 ### 성능 요약
 
-메모리: 38.1 MB, 시간: 5.77 ms
+메모리: 88.1 MB, 시간: 15.23 ms
 
 ### 구분
 
@@ -12,7 +12,11 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 12월 6일 12:58:40
 
 ### 문제 설명
 
@@ -213,4 +217,4 @@ Empty
 <p>※ 2023년 04월 27일 지문이 수정되었습니다. </p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
