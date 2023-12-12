@@ -1,10 +1,10 @@
-# [unrated] 정수를 나선형으로 배치하기 - 181832 
+# [level unrated] 정수를 나선형으로 배치하기 - 181832 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181832) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181832?language=java) 
 
 ### 성능 요약
 
-메모리: 33.6 MB, 시간: 0.23 ms
+메모리: 81.4 MB, 시간: 0.05 ms
 
 ### 구분
 
@@ -12,7 +12,11 @@
 
 ### 채점결과
 
-Empty
+정확성: 100.0<br/>합계: 100.0 / 100.0
+
+### 제출 일자
+
+2023년 12월 2일 9:48:43
 
 ### 문제 설명
 
@@ -155,4 +159,4 @@ Empty
 </ul>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
