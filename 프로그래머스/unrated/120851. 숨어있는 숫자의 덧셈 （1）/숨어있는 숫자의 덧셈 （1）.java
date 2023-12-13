@@ -3,9 +3,9 @@ class Solution {
         int result = 0;
         
         for (int i = 0; i < my_string.length(); i++) {
-            int codePoint = my_string.codePointAt(i);
-            if (codePoint >= 49 && codePoint <= 57) {
-                result += (codePoint - 48);
+            char ch = my_string.charAt(i);
+            if (Character.isDigit(ch)) {
+                result += Integer.parseInt(ch + "");
             }
         }
         
