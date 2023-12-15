@@ -22,7 +22,7 @@ public class Main {
             }
         }
         if (!hasConstructor) {
-            bw.write(String.valueOf(0));
+            bw.write("0");
         }
         
         bw.flush();
