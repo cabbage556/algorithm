@@ -17,7 +17,7 @@ public class Main {
                 boolean first = abcdef[0] * x + abcdef[1] * y == abcdef[2];
                 boolean second = abcdef[3] * x + abcdef[4] * y == abcdef[5];
                 if (first && second) {
-                    bw.write(String.valueOf(x) + " " + String.valueOf(y));
+                    bw.write(x + " " + y);
                     bw.flush();
                     br.close();
                     bw.close();
