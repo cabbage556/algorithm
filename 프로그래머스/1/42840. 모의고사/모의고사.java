@@ -25,17 +25,19 @@ class Solution {
             }
         }
         
-        int max = -1;
-        for (int correct : corrects) {
-            max = correct > max ? correct : max;
-        }
-        
-        List<Integer> result = new ArrayList<>();
+        int max = Arrays.stream(corrects).max().getAsInt();
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < corrects.length; i++) {
             if (max == corrects[i]) {
-                result.add(i + 1);
+                list.add(i + 1);
             }
         }
-        return result.stream().mapToInt(i -> i).toArray();
+        
+        int[] result = new int[list.size()];
+        int index = 0;
+        for (int num : list) {
+            result[index++] = num;
+        }
+        return result;
     }
 }
