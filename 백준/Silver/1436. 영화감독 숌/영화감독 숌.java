@@ -7,19 +7,17 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
         int count = 0;
-        int shom = 0;
         for (int i = 666; i < Integer.MAX_VALUE; i++) {
             String str = String.valueOf(i);
             if (str.contains("666")) {
                 count++;
             }
             if (count == N) {
-                shom = i;
+                bw.write(String.valueOf(i));
                 break;
             }
         }
 
-        bw.write(String.valueOf(shom));
         bw.flush();
         br.close();
         bw.close();
