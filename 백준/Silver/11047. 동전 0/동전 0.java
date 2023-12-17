@@ -16,12 +16,10 @@ public class Main {
 
         int count = 0;
         for (int i = coins.length - 1; i >= 0; i--) {
-            if (K == 0) {
-                break;
-            }
-            while (K >= coins[i]) {
-                K -= coins[i];
-                count++;
+            if (K >= coins[i]) {
+                int num = K / coins[i];
+                K -= (coins[i] * num);
+                count += num;
             }
         }
 
