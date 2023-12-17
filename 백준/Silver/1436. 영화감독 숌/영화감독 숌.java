@@ -8,8 +8,7 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         int count = 0;
         for (int i = 666; i < Integer.MAX_VALUE; i++) {
-            String str = String.valueOf(i);
-            if (str.contains("666")) {
+            if (String.valueOf(i).contains("666")) {
                 count++;
             }
             if (count == N) {
