@@ -38,7 +38,7 @@ public class Main {
             int max = ACGT[0];
             int maxIndex = 0;
             for (int k = 1; k < 4; k++) {
-                if (ACGT[k] > max || (ACGT[k] == max && k < maxIndex)) {
+                if (max < ACGT[k]) {
                     max = ACGT[k];
                     maxIndex = k;
                 }
