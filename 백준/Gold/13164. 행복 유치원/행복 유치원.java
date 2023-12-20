@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -19,15 +19,15 @@ public class Main {
             heights[i] = Integer.parseInt(st.nextToken());
         }
 
-        List<Integer> diffs = new ArrayList<>();
+        int[] diffs = new int[N - 1];
         for (int i = 1; i < N; i++) {
-            diffs.add(heights[i] - heights[i - 1]);
+            diffs[i - 1] = heights[i] - heights[i - 1];
         }
-        Collections.sort(diffs);
+        Arrays.sort(diffs);
 
         int result = 0;
         for (int i = 0; i < N - K; i++) {
-            result += diffs.get(i);
+            result += diffs[i];
         }
 
         bw.write(String.valueOf(result));
