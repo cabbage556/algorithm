@@ -2,36 +2,39 @@
 using namespace std;
 
 int a[9];
-int sum;
-vector<int> v;
-vector<int> v2;
+int n = 9, r = 7;
 
 void solve() {
-	for (int i = 0; i < 9; i++) {
-		for (int j = i + 1; j < 9; j++) {
-			if (sum - a[i] - a[j] == 100) {
-				v.push_back(i);
-				v.push_back(j);
-				return;
-			}
-		}
-	}
-}
-
-int main() {
-	for (int i = 0; i < 9; i++) {
-		cin >> a[i];
+	int sum = 0;
+	for (int i = 0; i < r; i++) {
 		sum += a[i];
 	}
 	
-	solve();
-	
-	for (int i = 0; i < 9; i++) {
-		if (v[0] == i || v[1] == i) continue;
-		v2.push_back(a[i]);
+	if (sum == 100) {
+		sort(a, a + 7);
+		for (int j = 0; j < r; j++) cout << a[j] << "\n";
+		exit(0);
 	}
-	sort(v2.begin(), v2.end());
-	for (int i : v2) cout << i << "\n";
+}
+
+void permu(int n, int r, int depth) {
+	if (r == depth) {
+		solve();
+		return;
+	}
+
+	for (int i = depth; i < n; i++) {
+		swap(a[i], a[depth]);
+		permu(n, r, depth + 1);
+		swap(a[i], a[depth]);
+	}
+	return;
+}
+
+int main() {
+	for (int i = 0; i < 9; i++) cin >> a[i];
+	
+	permu(n, r, 0);
 
 	return 0;
 }
