@@ -9,11 +9,11 @@ int main() {
 	cin >> N;
 	for (int i = 0; i < N; i++) {
 		cin >> s;
-		cnt[s[0] - 'a']++;
+		cnt[s[0] - 97]++;
 	}
 	
 	for (int i = 0; i < 26; i++) {
-		if (cnt[i] >= 5) s2 += (i + 'a');
+		if (cnt[i] >= 5) s2 += (i + 97);
 	}
 
 	if (s2.size()) cout << s2 << "\n";
