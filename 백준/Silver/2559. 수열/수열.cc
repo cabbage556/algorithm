@@ -17,8 +17,7 @@ int main() {
 		sums.push_back(psum[i + k] - psum[i]);
 	}
 	
-	sort(sums.begin(), sums.end());
-	cout << sums[sums.size() - 1] << "\n";
+	cout << *max_element(sums.begin(), sums.end()) << "\n";
 
 	return 0;
 }
