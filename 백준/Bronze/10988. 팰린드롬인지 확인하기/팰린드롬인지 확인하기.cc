@@ -1,22 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string s;
+string s, s2;
 
 int main() {
 	cin >> s;
 	
-	int left = 0;
-	int right = s.size() - 1;
+	s2 = s;
+	reverse(s2.begin(), s2.end());
 	
-	while (left < right) {
-		if (s[left++] != s[right--]) {
-			cout << 0;
-			return 0;
-		}
-	}
-	
-	cout << 1;
+	if (s == s2) cout << 1 << "\n";
+	else cout << 0 << "\n";
 
 	return 0;
 }
