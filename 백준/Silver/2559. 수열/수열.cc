@@ -2,8 +2,7 @@
 using namespace std;
 
 int n, k, temp;
-int psum[100004];
-vector<int> sums;
+int psum[100004], ret = -10000004;
 
 int main() {
 	cin >> n >> k;
@@ -13,11 +12,11 @@ int main() {
 		psum[i] = psum[i - 1] + temp;
 	}
 
-	for (int i = 0; i <= n - k; i++) {
-		sums.push_back(psum[i + k] - psum[i]);
+	for (int i = k; i <= n; i++) {
+		ret = max(ret, psum[i] - psum[i - k]);
 	}
 	
-	cout << *max_element(sums.begin(), sums.end()) << "\n";
+	cout << ret << "\n";
 
 	return 0;
 }
