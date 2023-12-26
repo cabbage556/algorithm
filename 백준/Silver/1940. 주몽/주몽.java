@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -13,11 +14,20 @@ public class Main {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
+        Arrays.sort(arr);
 
+        int left = 0, right = N - 1;
         int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = i + 1; j < N; j++) {
-                if (arr[i] + arr[j] == M) cnt++;
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+            if (sum < M) {
+                left++;
+            } else if (sum > M) {
+                right--;
+            } else {
+                cnt++;
+                left++;
+                right--;
             }
         }
 
