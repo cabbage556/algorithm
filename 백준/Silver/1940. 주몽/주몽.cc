@@ -2,6 +2,7 @@
 using namespace std;
 
 int N, M, num, ret;
+int l, r;
 vector<int> v;
 
 int main() {
@@ -13,10 +14,17 @@ int main() {
 		cin >> num;
 		v.push_back(num);
 	}
+	sort(v.begin(), v.end());
 	
-	for (int i = 0; i < N; i++) {
-		for (int j = i + 1; j < N; j++) {
-			if (v[i] + v[j] == M) ret++;
+	r = v.size() - 1;
+	while (l < r) {
+		int sum = v[l] + v[r];
+		if (sum < M) l++;
+		else if (sum > M) r--;
+		else {
+			ret++;
+			l++;
+			r--;
 		}
 	}
 	
