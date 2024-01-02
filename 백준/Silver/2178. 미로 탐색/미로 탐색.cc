@@ -2,7 +2,6 @@
 using namespace std;
 
 int n, m;
-string s;
 int miro[104][104], visited[104][104];
 
 int dy[] = {-1, 0, 1, 0};
@@ -32,11 +31,10 @@ void bfs(int y, int x) {
 }
 
 int main() {
-	cin >> n >> m;
+	scanf("%d %d", &n, &m);
 	for (int i = 1; i <= n; i++) {
-		cin >> s;
 		for (int j = 1; j <= m; j++) {
-			miro[i][j] = s[j - 1] - '0';
+			scanf("%1d", &miro[i][j]);
 		}
 	}
 	
