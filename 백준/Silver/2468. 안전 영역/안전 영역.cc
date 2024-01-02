@@ -7,18 +7,26 @@ bool visited[104][104];
 int dy[] = {-1, 0, 1, 0};
 int dx[] = {0, 1, 0, -1};
 
-void dfs(int y, int x, int height) {
+void bfs(int y, int x, int height) {
 	visited[y][x] = true;
+	queue<pair<int, int>> q;
+	q.push({y, x});
 
-	for (int i = 0; i < 4; i++) {
-		int ny = y + dy[i];
-		int nx = x + dx[i];
-		if (ny < 0 || nx < 0 || ny >= n || nx >= n || area[ny][nx] <= height) continue;
-		if (visited[ny][nx]) continue;
+	while (q.size()) {
+		tie(y, x) = q.front();
+		q.pop();
 
-		visited[ny][nx] = true;
-		dfs(ny, nx, height);
+		for (int i = 0; i < 4; i++) {
+			int ny = y + dy[i];
+			int nx = x + dx[i];
+			if (ny < 0 || nx < 0 || ny >= n || nx >= n || area[ny][nx] <= height) continue;
+			if (visited[ny][nx]) continue;
+			
+			visited[ny][nx] = true;
+			q.push({ny, nx});
+		}
 	}
+
 }
 
 int main() {
@@ -36,7 +44,7 @@ int main() {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (area[i][j] > height && !visited[i][j]) {
-					dfs(i, j, height);
+					bfs(i, j, height);
 					safe++;
 				}
 			}
