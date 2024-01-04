@@ -1,67 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string s;
-string s2 = "aeiou";
-string s3 = "abcdefghijklmnopqrstuvwxyz";
+string s; 
+int v_cnt, nv_cnt; 
 
-int main() {
+bool isVowel(char c) {
+	return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int main() { 
 	while (cin >> s) {
 		if (s == "end") break;
 		
-		bool zeromo = true;
+		v_cnt = 0;
+		nv_cnt = 0;
+		bool v_included = false;
+		bool flag = false;
+		char prev = '~';
+		
 		for (int i = 0; i < s.size(); i++) {
 			char c = s[i];
-			if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-				zeromo = false;
-				break;
+			if (isVowel(c)) {
+				v_cnt++;
+				nv_cnt = 0;
+				v_included = true;
+			} else {
+				v_cnt = 0;
+				nv_cnt++;
 			}
-		}
-		if (zeromo) {
-			cout << '<' << s << '>' << " is not acceptable.\n";
-			continue;
-		}
+			
+			if (v_cnt == 3 || nv_cnt == 3) flag = true;
+			if (i >= 1 && prev == c && (c != 'e' && c != 'o')) flag = true;
 
-		bool con = false;
-		if (s.size() >= 3) {
-			for (int i = 0; i < s.size() - 2; i++) {
-				char c1 = s[i], c2 = s[i + 1], c3 = s[i + 2];
-				auto it1 = s2.find(c1), it2 = s2.find(c2), it3 = s2.find(c3);
+			prev = c;
+		}
+		if (!v_included) flag = true;
 
-				if (it1 != string::npos && it2 != string::npos && it3 != string::npos) {
-					con = true;
-					break;
-				} else if (it1 == string::npos && it2 == string::npos && it3 == string::npos) {
-					con = true;
-					break;
-				}
-			}
-		}
-		if (con) {
-			cout << '<' << s << '>' << " is not acceptable.\n";
-			continue;
-		}
-		
-		if (s.size() >= 2) {
-			for (int i = 0; i < s.size() - 1; i++) {
-				char c1 = s[i], c2 = s[i + 1];
-				auto it1 = s3.find(c1), it2 = s3.find(c2);
-				if (it1 == it2) {
-					if (c1 == 'e' && c2 == 'e') continue;
-					else if (c1 == 'o' && c2 == 'o') continue;
-					
-					con = true;
-					break;
-				}
-			}
-		}
-		if (con) {
-			cout << '<' << s << '>' << " is not acceptable.\n";
-			continue;
-		}
-
-		cout << '<' << s << '>' << " is acceptable.\n";
+		if (flag) cout << "<" << s << ">" << " is not acceptable.\n";
+		else cout << "<" << s << ">" << " is acceptable.\n";
 	}
-	
+
 	return 0;
 }
