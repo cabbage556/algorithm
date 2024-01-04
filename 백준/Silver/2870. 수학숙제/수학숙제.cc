@@ -6,10 +6,8 @@ string s;
 vector<string> v;
 
 void push(string str) {
-    while (true) {
-        if (str.size() && str[0] == '0') str.erase(str.begin());
-        else break;
-    }
+    while (str.size() && str[0] == '0') str.erase(str.begin());
+
     if (str.size() == 0) str = "0";
     v.push_back(str);
 }
