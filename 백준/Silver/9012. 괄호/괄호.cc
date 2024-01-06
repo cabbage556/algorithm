@@ -10,19 +10,19 @@ int main() {
 		cin >> s;
 
 		stack<char> stk;
-		for (int j = 0; j < s.size(); j++) {
-			char c = s[j];
-			if (stk.size() == 0) {
-				stk.push(c);
-				continue;
+		bool right = true;
+		for (char c : s) {
+			if (c == '(') stk.push(c);
+			else if (!stk.empty()) stk.pop();
+			else {
+				right = false;
+				break;
 			}
-			
-			if (stk.top() == '(' && c == ')') stk.pop();
-			else stk.push(c);
 		}
 		
-		if (stk.size()) cout << "NO" << "\n";
-		else cout << "YES" << "\n";
+		if (!right) cout << "NO\n";
+		else if (!stk.empty()) cout << "NO\n";
+		else cout << "YES\n";
 	}
 
 	return 0;
