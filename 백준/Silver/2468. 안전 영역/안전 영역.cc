@@ -1,32 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, max_height, min_height, ret;
+int n, min_height, max_height;
 int area[104][104];
 bool visited[104][104];
-int dy[] = {-1, 0, 1, 0};
-int dx[] = {0, 1, 0, -1};
+int dy[] = {-1, 0, 1, 0}, dx[] = {0, 1, 0, -1};
 
-void bfs(int y, int x, int height) {
+void dfs(int y, int x, int height) {
 	visited[y][x] = true;
-	queue<pair<int, int>> q;
-	q.push({y, x});
 
-	while (q.size()) {
-		tie(y, x) = q.front();
-		q.pop();
-
-		for (int i = 0; i < 4; i++) {
-			int ny = y + dy[i];
-			int nx = x + dx[i];
-			if (ny < 0 || nx < 0 || ny >= n || nx >= n || area[ny][nx] <= height) continue;
-			if (visited[ny][nx]) continue;
-			
-			visited[ny][nx] = true;
-			q.push({ny, nx});
-		}
+	for (int i = 0; i < 4; i++) {
+		int ny = y + dy[i];
+		int nx = x + dx[i];
+		if (ny < 0 || ny >= n || nx < 0 || nx >= n || visited[ny][nx] || area[ny][nx] <= height) continue;
+		
+		dfs(ny, nx, height);
 	}
+}
 
+int solve() {
+	int cnt = 0;
+	for (int height = min_height; height <= max_height; height++) {
+		int cnt2 = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (!visited[i][j] && area[i][j] > height) {
+					dfs(i, j, height);
+					cnt2++;
+				}
+			}
+		}
+		cnt = max(cnt, cnt2);
+		fill(&visited[0][0], &visited[0][0] + 104 * 104, false);
+	}
+	return cnt;
 }
 
 int main() {
@@ -34,25 +41,12 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			cin >> area[i][j];
-			max_height = max(max_height, area[i][j]);
-			min_height = min(min_height, area[i][j]);
+			min_height = min(area[i][j], min_height);
+			max_height = max(area[i][j], max_height);
 		}
 	}
 	
-	for (int height = min_height; height <= max_height; height++) {
-		int safe = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				if (area[i][j] > height && !visited[i][j]) {
-					bfs(i, j, height);
-					safe++;
-				}
-			}
-		}
-		ret = max(ret, safe);
-		memset(visited, 0, sizeof(visited));
-	}
-	cout << ret << "\n";
-	
+	cout << solve() << "\n";
+
 	return 0;
 }
