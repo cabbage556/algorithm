@@ -10,7 +10,7 @@ int bfs(int y, int x) {
 	int dist = 0;
 	queue<pair<int, int>> q;
 	q.push({y, x});
-	visited[y][x] = true;
+	visited[y][x] = 1;
 	
 	while (!q.empty()) {
 		auto pos = q.front();
