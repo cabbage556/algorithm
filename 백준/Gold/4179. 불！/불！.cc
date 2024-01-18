@@ -12,6 +12,10 @@ pii jh;
 queue<pii> q;
 
 int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	fill(&fire[0][0], &fire[0][0] + max_rc * max_rc, INF);
 
 	cin >> r >> c;
