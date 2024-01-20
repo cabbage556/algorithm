@@ -2,10 +2,10 @@
 using namespace std;
 
 const int max_nk = 500000; 
-int n, k, turn = 1, ret = -1;
+int n, k, turn = 1;
 bool visited[2][max_nk + 1];
 
-void bfs(int here) {
+int bfs(int here) {
 	visited[0][n] = true;
     queue<int> q;
     q.push(here);    
@@ -14,11 +14,10 @@ void bfs(int here) {
         k += turn;
 
         if (k > max_nk) {
-			return;
+			break;
 		}
         if (visited[turn % 2][k]) {
-			ret = turn;
-			return;
+			return turn;
 		}
         
         int q_size = q.size();
@@ -28,8 +27,7 @@ void bfs(int here) {
 
             for (int there : {here + 1, here - 1, here * 2}) {
 				if (there == k) {
-					ret = turn;
-					return;
+					return turn;
 				}
                 if (there < 0 || there > max_nk) continue;
                 if (visited[turn % 2][there]) continue;
@@ -40,6 +38,8 @@ void bfs(int here) {
         }
         turn++;
     }
+	
+	return -1;
 }
 
 int main() {
@@ -49,8 +49,7 @@ int main() {
         return 0;
     }
 
-	bfs(n);
-	cout << ret << "\n";
+	cout << bfs(n) << "\n";
 
     return 0;
 }
