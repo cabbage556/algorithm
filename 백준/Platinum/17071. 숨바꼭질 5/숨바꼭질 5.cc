@@ -3,13 +3,13 @@ using namespace std;
 
 const int max_nk = 500000; 
 int n, k, turn = 1, ret = -1;
-int visited[2][max_nk + 1];
+bool visited[2][max_nk + 1];
 
 void bfs(int here) {
-	visited[0][n] = 1;
+	visited[0][n] = true;
     queue<int> q;
-    q.push(here);
-    
+    q.push(here);    
+
     while (!q.empty()) {
         k += turn;
 
@@ -27,14 +27,14 @@ void bfs(int here) {
             q.pop();
 
             for (int there : {here + 1, here - 1, here * 2}) {
-                if (there < 0 || there > max_nk) continue;
-                if (visited[turn % 2][there]) continue;
-                
-                visited[turn % 2][there] = visited[(turn + 1) % 2][here] + 1;
 				if (there == k) {
 					ret = turn;
 					return;
 				}
+                if (there < 0 || there > max_nk) continue;
+                if (visited[turn % 2][there]) continue;
+                
+                visited[turn % 2][there] = true;
                 q.push(there);
             }
         }
