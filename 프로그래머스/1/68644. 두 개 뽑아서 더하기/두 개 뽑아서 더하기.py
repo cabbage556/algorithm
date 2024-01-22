@@ -1,8 +1,10 @@
+from itertools import combinations
+
 def solution(numbers):
     ret = []
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            ret.append(numbers[i] + numbers[j])
-
+    combi = list(combinations(numbers, 2))
+    for com in combi:
+        ret.append(com[0] + com[1])
+        
     ret = sorted(set(ret))
     return ret
