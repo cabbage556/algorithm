@@ -4,16 +4,17 @@ def solution(answers):
         [2, 1, 2, 3, 2, 4, 2, 5],
         [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     ]
-    scores = [0] * 3
-    for i, answer in enumerate(answers):
-        for j, way in enumerate(ways):
-            if answer == way[i % len(way)]:
-                scores[j] += 1
-                
-    max_score = max(scores)
-    ret = []
-    for i, score in enumerate(scores):
-        if score == max_score:
-            ret.append(i + 1)
     
+    pts = [0] * 3
+    for i, ans in enumerate(answers):
+        for j, way in enumerate(ways):
+            if ans == way[i % len(way)]:
+                pts[j] += 1
+    
+    max_pt = max(pts)
+    ret = []
+    for i, pt in enumerate(pts):
+        if pt == max_pt:
+            ret.append(i + 1)
+
     return ret
