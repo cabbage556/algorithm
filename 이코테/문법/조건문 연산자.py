@@ -8,11 +8,12 @@
 #       X in 리스트: 리스트에 X가 들어 있다면 True 리턴
 #       X not in 문자열: 문자열에 X가 들어 있지 않다면 True 리턴
 
-# 조건부 표현식 if else 문을 한 줄에 작성하기
+# if-else 문을 한 줄에 작성하기
 score = 100
 res = "Success" if score >= 90 else "Fail"
 print(res)  # Success
 
+# 리스트에서 특정 원소만 제거하기
 a = [1, 2, 3, 4, 5, 5, 5]
 rm_set = {3, 5}
 res = [i for i in a if i not in rm_set]

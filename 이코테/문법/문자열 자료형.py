@@ -5,6 +5,7 @@
 #       작은 따옴표 내부에 큰 따옴표 포함 가능
 #       \" 또는 \'를 사용해 큰 따옴표 또는 작은 따옴표를 문자열에 포함 가능
 s = 'Hello World'
+s = "Hello World"
 s = "Don't you know \"Python\"?"
 print(s)  # Don't you know "Python"?
 
