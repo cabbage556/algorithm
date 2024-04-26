@@ -1,9 +1,25 @@
+"""
+숫자 카드 게임
+    여러 숫자 카드 중에서 가장 높은 숫자가 쓰인 카드 1장을 뽑는 게임
+게임 룰
+    1. 숫자 카드들이 n x m 형태로 놓임
+    2. 먼저 뽑으려는 카드가 포함된 행을 선택함
+    3. 선택된 행의 카드들 중 가장 숫자가 낮은 카드를 뽑아야 함
+    4. 처음에 카드를 골라낼 행을 선택할 때, 이후 해당 행에서 가장 숫자가 낮은 카드를 뽑을 것을 고려하여 최종적으로
+        가장 높은 숫자를 뽑을 수 있도록 전략을 세워야 함
+"""
+
+# n : 행의 갯수
+# m : 열의 갯수
 n, m = map(int, input().split())
 
-ret = 0
-for _ in range(n):
-    cards = list(map(int, input().split()))
-    min_card = min(cards)
-    ret = max(ret, min_card)
+# 카드 숫자가 1 이상이므로 0으로 결과값 초기화
+res = 0
 
-print(ret)
+# n번 반복
+for _ in range(n):
+    cards = list(map(int, input().split()))  # 카드 입력
+    min_card = min(cards)     # 현재 행에서 가장 숫자가 낮은 카드 뽑기
+    res = max(min_card, res)  # 가장 숫자가 낮은 카드 중 가장 숫자가 높은 카드 선택
+
+print(res)
